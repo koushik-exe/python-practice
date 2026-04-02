@@ -1,10 +1,2 @@
 print("Hello, World! Welcome to Python programming.")
 print("koushik")
-print ("This is a simple Python program.")
-print("Python is a versatile language used for various applications.")
-print("Let's learn Python together!")
-print("Python is great for data analysis, web development, and more.")
-print("Happy coding!")
-print("Python is easy to learn and fun to use.")
-print("Keep practicing and you'll become a Python pro!")
-
