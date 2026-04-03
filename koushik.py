@@ -6,5 +6,5 @@ print("This is a practice file for learning Python.")
 # Feel free to experiment with different print statements and see how they work.
 # You can also add comments to your code to explain what it does.
 # Happy coding!
-Print("koushik is still learning the python programming")
+print("koushik is still learning the python programming")
 #--------------------------------------------------------
