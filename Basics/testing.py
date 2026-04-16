@@ -1,12 +1,15 @@
-city = "Coimbatore"
+age = 25
+student = "yes"
 
-def company():
-    company_name = "GenZ"
+if age >= 25 or student = "yes":
+    print("Yes discount")
+else:
+    print("No Discount")
 
-    def employee():
-        employee_name = "Koushik"
-        print(f"{employee_name} works in {company_name} in {city}")
+age = 25
+student = "yes"
 
-    employee()
-
-company()
+if age >= 25 or student == "yes":
+    print("Yes discount")
+else:
+    print("No Discount")
