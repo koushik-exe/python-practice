@@ -1,0 +1,148 @@
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.dml.color import RGBColor
+from pptx.enum.shapes import MSO_SHAPE
+
+prs = Presentation()
+
+# COLORS
+BLUE_DARK = RGBColor(31, 56, 100)
+BLUE_MED = RGBColor(46, 117, 182)
+LIGHT_BLUE = RGBColor(222, 234, 241)
+MID_BLUE = RGBColor(189, 215, 238)
+GREEN_LIGHT = RGBColor(226, 239, 218)
+ORANGE_LIGHT = RGBColor(252, 228, 214)
+WHITE = RGBColor(255, 255, 255)
+
+# =====================================================
+# SLIDE 1 — FULL CONTENT
+# =====================================================
+slide = prs.slides.add_slide(prs.slide_layouts[6])
+
+# HEADER
+shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0), Inches(0), Inches(13.3), Inches(0.6))
+shape.fill.solid()
+shape.fill.fore_color.rgb = BLUE_DARK
+tf = shape.text_frame
+tf.text = "Pravetha Chandrasekar Profile Summary — Power BI"
+tf.paragraphs[0].font.color.rgb = WHITE
+tf.paragraphs[0].font.bold = True
+
+# SUBTITLE
+shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0), Inches(0.6), Inches(13.3), Inches(0.3))
+shape.fill.solid()
+shape.fill.fore_color.rgb = BLUE_MED
+tf = shape.text_frame
+tf.text = "Evaluation Summary — Assessment of profile fitment for the role — Power BI Developer / Admin — Support & Development"
+tf.paragraphs[0].font.color.rgb = WHITE
+
+# WHY RELEVANT (FULL TEXT)
+box = slide.shapes.add_textbox(Inches(0.3), Inches(1), Inches(12.5), Inches(1.2))
+tf = box.text_frame
+tf.text = "Why Relevant for the Role"
+tf.paragraphs[0].font.bold = True
+
+p = tf.add_paragraph()
+p.text = "Pravetha brings 8 years of BI and Analytics experience — 5 years in Power BI Development and 7 months in Power BI Administration at Cognizant. Proven expertise in dashboard design, DAX, Power Query, workspace governance and gateway management across Healthcare, Banking and Real Estate sectors. Strong stakeholder collaborator committed to data-driven decision-making."
+p.font.size = Pt(10)
+
+# STRENGTHS
+shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.3), Inches(2.3), Inches(6), Inches(2))
+shape.fill.solid()
+shape.fill.fore_color.rgb = GREEN_LIGHT
+tf = shape.text_frame
+tf.text = "Strengths"
+
+for item in [
+    "Power BI Development & Admin — dashboards, workspace governance, gateway management",
+    "Advanced DAX & Data Modeling — measures, KPIs, calculated columns",
+    "Stakeholder Communication — requirements gathering, training, end-user support",
+    "Performance Optimization — capacity management, refresh troubleshooting, data validation"
+]:
+    p = tf.add_paragraph()
+    p.text = item
+    p.level = 1
+
+# IMPROVEMENTS
+shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(6.5), Inches(2.3), Inches(6.5), Inches(2))
+shape.fill.solid()
+shape.fill.fore_color.rgb = ORANGE_LIGHT
+tf = shape.text_frame
+tf.text = "Areas to Improve"
+
+for item in [
+    "Azure Cloud Integration — ADF and cloud-based data pipeline exposure",
+    "Advanced SQL — complex query writing for large-scale data",
+    "Data Governance Frameworks — Medallion architecture and enterprise governance",
+    "Cost Management & Query Folding — Premium capacity cost optimization"
+]:
+    p = tf.add_paragraph()
+    p.text = item
+    p.level = 1
+
+# JD TABLE (FULL)
+table_data = [
+    ["Category", "JD Expectation", "Rating", "Evidence / Notes"],
+    ["Power BI Development", "Design dashboards", "Expert", "5 years across NatWest, Hammerson, AMEX"],
+    ["DAX & Data Modeling", "Optimize DAX", "Expert", "Built measures across projects"],
+    ["Power Query & ETL", "ETL from sources", "Expert", "On-prem + cloud"],
+    ["Data Visualization", "Business dashboards", "Expert", "Charts and reports"],
+    ["Performance Optimization", "Troubleshoot", "Practitioner", "Medtronic experience"],
+    ["Power BI Admin", "Workspace governance", "Expert", "7 months admin"],
+    ["SQL & DB", "SQL experience", "Practitioner", "MySQL, DB2"],
+    ["Azure", "Cloud familiarity", "Learner", "Azure DevOps usage"],
+    ["Stakeholder", "Collaboration", "Expert", "Cross-functional work"],
+    ["Governance", "Security policies", "Practitioner", "Role-based access"]
+]
+
+rows, cols = len(table_data), len(table_data[0])
+table = slide.shapes.add_table(rows, cols, Inches(0.3), Inches(4.5), Inches(12.5), Inches(2.5)).table
+
+for i in range(rows):
+    for j in range(cols):
+        cell = table.cell(i, j)
+        cell.text = table_data[i][j]
+
+        if i == 0:
+            cell.fill.solid()
+            cell.fill.fore_color.rgb = BLUE_DARK
+            for p in cell.text_frame.paragraphs:
+                p.font.color.rgb = WHITE
+                p.font.bold = True
+
+# =====================================================
+# SLIDE 2 — FULL PROJECT DETAILS
+# =====================================================
+slide = prs.slides.add_slide(prs.slide_layouts[6])
+
+# HEADER
+shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0), Inches(0), Inches(13.3), Inches(0.6))
+shape.fill.solid()
+shape.fill.fore_color.rgb = BLUE_DARK
+tf = shape.text_frame
+tf.text = "Pravetha Chandrasekar — Power BI Developer & Admin"
+tf.paragraphs[0].font.color.rgb = WHITE
+
+# PROJECTS (FULL DETAILS)
+box = slide.shapes.add_textbox(Inches(0.3), Inches(1), Inches(12.5), Inches(6))
+tf = box.text_frame
+
+tf.text = "Projects Handled"
+tf.paragraphs[0].font.bold = True
+
+projects = [
+    "Medtronic — Power BI Admin | Workspace governance, gateway config, audit logs, capacity optimization",
+    "Hammerson — Dashboard development | UX migration, trend reports, Azure DevOps tracking",
+    "NatWest — Dashboard development | DAX measures, drill reports, stakeholder reporting",
+    "AMEX — Production support | HR analytics, automation, SLA reporting, training"
+]
+
+for pr in projects:
+    p = tf.add_paragraph()
+    p.text = pr
+    p.level = 1
+
+# SAVE
+prs.save("C:/Users/ckous/Desktop/Pravetha_Profile_PPT_FULL.pptx")
+
+print("✅ FULL PPT Created Successfully!")

@@ -12,7 +12,7 @@ from datetime import datetime
 
 # 📂 Paths
 SOURCE_FOLDER = r"C:\Users\ckous\Desktop\Messy"
-DEST_FOLDER   = r"C:\Users\ckous\Desktop\Testing Claude Code Organizer"
+DEST_FOLDER   = r"C:\Users\ckous\Desktop\Organizer"
 LOG_FILE      = os.path.join(DEST_FOLDER, "god_mode_log.txt")
 REPORT_FILE   = os.path.join(DEST_FOLDER, "deep_verification.txt")
 
