@@ -11,8 +11,8 @@ from datetime import datetime
 # ============================================================
 
 # 📂 Paths
-SOURCE_FOLDER = r"C:\Users\ckous\Desktop\Messy"
-DEST_FOLDER   = r"C:\Users\ckous\Desktop\Organizer"
+SOURCE_FOLDER = r"C:\Users\ckous\Desktop\Pravetha"
+DEST_FOLDER   = r"C:\Users\ckous\Desktop\Pravetha Organizer"
 LOG_FILE      = os.path.join(DEST_FOLDER, "god_mode_log.txt")
 REPORT_FILE   = os.path.join(DEST_FOLDER, "deep_verification.txt")
 

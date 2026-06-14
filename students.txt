@@ -1,0 +1,7 @@
+Name: Koushik
+Age: 23
+City: Karur
+Course: Python
+Goal: Data Engineer
+Hobby: Coding
+Status: Learning
