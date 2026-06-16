@@ -16,6 +16,7 @@ class RapidoRide:
     def company_info(cls):
         return f"Company: {cls.company}"
 
-R1.book_ride()                    # ✅ instance - on object
-RapidoRide.calculate_fare(10)     # ✅ static - on class
-RapidoRide.company_info()         # ✅ class - on class
+R1 = RapidoRide("Koushik", 10)
+print(R1.book_ride())
+print(R1.calculate_fare(10))
+print(R1.company_info())

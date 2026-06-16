@@ -1,45 +1,35 @@
-with open("students.txt", 'w') as file:
-    file.write("Name: Koushik\n")
-    file.write("Age: 23\n")
-    file.write("City: Karur\n")
-    file.write("Course: Python\n")
-    file.write("Goal: Data Engineer\n")
+class BankAccount:
+    def __init__ (self,account_holder, account_number,balance,pin):
+        self.account_holder = account_holder
+        self.account_number = account_number
+        self.__balance = balance
+        self.__pin = pin
+    
+    def __validate_pin(self, entered_pin):
+        return self.__pin == entered_pin
 
-"""
-with open("students.txt", 'r') as file:
-    print(file.read())
-"""
-with open("students.txt", 'a') as file:
-    file.write("Hobby: Coding\n")
-    file.write("Status: Learning\n")
-"""
-with open("students.txt", 'r') as file:
-    print(file.read())
+    def _get_bank_view(self):
+        return f"Account Holder: {self.account_holder}\nAccount Number: {self.account_number}\nBalance: {self.__balance}\n"
+            
+    
+    def get_customer_view(self):
+        return f"Account Holder: {self.account_holder}\nBalance: {self.__balance}\n"
+    
+class BankStaff:
+    def show_account(self, account):
+        return account._get_bank_view()
 
-with open("students.txt", 'r') as file:
-    content = file.readlines()
-    print(content[3])
-    print(content[4])
+class CustomerApp:
+    def show_account(self, account):
+        return account.get_customer_view()
 
-with open("students.txt", 'r') as file:
-    file.readline()   # line 1 — read but don't print
-    file.readline()   # line 2 — read but don't print
-    print(file.readline())  # line 3 — print this
-    print(file.readline())  # line 4 — print this
+acc = BankAccount("Koushik", "SB001", 50000, 1234)
 
-with open("students.txt", 'r') as file:
-    for i in file:
-        if "Karur" in i or "Python" in i:
-            print(i)
+staff = BankStaff()
+customer = CustomerApp()
 
-with open("students.txt", 'r') as file:
-    lines = file.readlines()
-    for index, value in enumerate(lines, 1):
-        print(f"{index} : {value}")
-"""
-with open("students.txt", 'r') as file:
-    while True:
-        line = file.readline()
-        if not line:        # if line is empty — file ended
-            break
-        print(line.strip()) # strip() removes extra blank lines
+print("Bank Staff View:")
+print(staff.show_account(acc))
+
+print("Customer View:")
+print(customer.show_account(acc))
