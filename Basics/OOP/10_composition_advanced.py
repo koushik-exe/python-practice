@@ -53,7 +53,7 @@ acc = BankAccount("Koushik", "SB001", 50000, 1234)
 
 staff = BankStaff()
 customer = CustomerApp()
-"""
+
 print("Bank Staff View:")
 print(staff.show_account(acc))
 
@@ -62,6 +62,6 @@ print(customer.show_account(acc))
 
 print("\nDeposit:")
 print(acc.deposit(5000))
-"""
+
 print("\nWithdraw:")
 print(acc.withdraw(200000))
