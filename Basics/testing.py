@@ -1,3 +1,4 @@
+"""
 class BankAccount:
     def __init__ (self,account_holder, account_number,balance,pin):
         self.account_holder = account_holder
@@ -33,3 +34,13 @@ print(staff.show_account(acc))
 
 print("Customer View:")
 print(customer.show_account(acc))
+
+"""
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+S1 = Student("Koushik", 85)
+print(S1)
+
